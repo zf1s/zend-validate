@@ -253,15 +253,12 @@ class Zend_Validate_File_Count extends Zend_Validate_Abstract
         if (($file === null) || !empty($file['tmp_name'])) {
             $this->addFile($value);
         }
-	if (!$this->_files === null) {
-            $this->_count = count($this->_files);
-            if (($this->_max !== null) && ($this->_count > $this->_max)) {
-                return $this->_throw($file, self::TOO_MANY);
-            }
-
-            if (($this->_min !== null) && ($this->_count < $this->_min)) {
-                return $this->_throw($file, self::TOO_FEW);
-            }
+        $this->_count = $this->_files !== null ? count($this->_files) : 0;
+        if (($this->_max !== null) && ($this->_count > $this->_max)) {
+            return $this->_throw($file, self::TOO_MANY);
+        }
+        if (($this->_min !== null) && ($this->_count < $this->_min)) {
+            return $this->_throw($file, self::TOO_FEW);
         }
         return true;
     }
