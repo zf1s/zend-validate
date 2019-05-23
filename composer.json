@@ -11,7 +11,9 @@
 	"license": "BSD-3-Clause",
 	"require": {
 		"php": ">=5.2.11",
+		"ext-ctype": "*",
 		"ext-iconv": "*",
+		"ext-reflection": "*",
 		"zf1s/zend-exception": "^1.12",
 		"zf1s/zend-loader": "^1.12",
 		"zf1s/zend-locale": "^1.12"
